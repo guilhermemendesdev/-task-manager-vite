@@ -1,8 +1,7 @@
-export function App() {
+import { AppRoutes } from "./routes";
 
+export const App = () => {
   return (
-    <>
-    teste
-    </>
+    <AppRoutes/>
   )
 }
