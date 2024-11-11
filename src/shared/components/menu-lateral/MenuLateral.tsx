@@ -13,6 +13,10 @@ interface IDrawerOpenProviderProps {
     children?: React.ReactNode
 }
 
+interface IMenuLateralProps {
+    children: React.ReactNode
+}
+
 const ListItemLink: React.FC<IDrawerOpenProviderProps> = ({to, icon, label, onClick}) => {
     const navigate = useNavigate()
 
@@ -34,7 +38,7 @@ const ListItemLink: React.FC<IDrawerOpenProviderProps> = ({to, icon, label, onCl
     )
 }
 
-export const MenuLateral: React.FC<IDrawerOpenProviderProps> = ({children}) => {
+export const MenuLateral: React.FC<IMenuLateralProps> = ({children}) => {
     const theme = useTheme()
     const smDown = useMediaQuery(theme.breakpoints.down('sm'))
 
