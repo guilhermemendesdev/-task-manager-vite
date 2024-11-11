@@ -6,7 +6,6 @@ export const AppRoutes = () => {
     const {toggleTheme} = useAppThemeContext()
     return (
         <Routes>
-
             <Route path='/home' element={<Button variant='contained' color='primary' onClick={toggleTheme}>Página inicial</Button>}/>
             <Route path='*'  element={<Navigate to='/home'/>}/>
         </Routes>
