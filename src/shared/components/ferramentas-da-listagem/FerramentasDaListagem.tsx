@@ -1,6 +1,7 @@
 /* eslint-disable react/prop-types */
 import { Add } from "@mui/icons-material"
 import { Box, Button, Paper, TextField, useTheme } from "@mui/material"
+import { Enviroment } from "../../environment"
 
 interface IFerramentasDaListagemProps {
     textoDaBusca?: string
@@ -35,7 +36,7 @@ export const FerramentasDaListagem: React.FC<IFerramentasDaListagemProps> = ({
             size="small" 
             value={textoDaBusca} 
             onChange={(e) => aoMudarTextoDeBusca?.(e.target.value)} 
-            placeholder="Pesquisar..."
+            placeholder={Enviroment.INPUT_DE_BUSCA}
             />)}
 
         <Box flex={1} display='flex' justifyContent='end'>
