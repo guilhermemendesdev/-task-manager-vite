@@ -1,8 +1,8 @@
 import React, { useCallback } from 'react'
-import { Home } from "@mui/icons-material"
+import { DarkMode, LightMode } from "@mui/icons-material"
 import { Avatar, Divider, Drawer, List, ListItemButton, ListItemIcon, ListItemText, useTheme } from "@mui/material"
 import { Box, useMediaQuery } from "@mui/system"
-import { useDrawerContext } from "../../contexts"
+import { useAppThemeContext, useDrawerContext } from "../../contexts"
 import { useMatch, useNavigate, useResolvedPath } from 'react-router-dom'
 
 interface IDrawerOpenProviderProps {
@@ -39,6 +39,7 @@ export const MenuLateral: React.FC<IDrawerOpenProviderProps> = ({children}) => {
     const smDown = useMediaQuery(theme.breakpoints.down('sm'))
 
     const {isDrawerOpen, toggleDrawerOpen, drawerOptions} = useDrawerContext()
+    const {toggleTheme, themeName} = useAppThemeContext()
 
     return(
     <>
@@ -59,6 +60,16 @@ export const MenuLateral: React.FC<IDrawerOpenProviderProps> = ({children}) => {
                                 onClick={smDown ? toggleDrawerOpen : undefined}
                             />
                         ))}
+                    </List>
+                </Box>
+                <Box>
+                    <List component='nav'>
+                        <ListItemButton onClick={toggleTheme}>
+                            <ListItemIcon>
+                                {themeName === 'dark' ? <LightMode /> : <DarkMode/>}
+                            </ListItemIcon>
+                            <ListItemText primary={themeName === 'dark' ? "Tema claro" : 'Tema escuro'} />
+                        </ListItemButton> 
                     </List>
                 </Box>
             </Box>
