@@ -1,6 +1,6 @@
 import { Api } from '../axios-config';
 
-interface IDeveloper {
+export interface IDeveloper {
   _id: string;
   name: string;
   cpf: string;
@@ -12,16 +12,17 @@ interface IDeveloper {
   updated_at: Date;
 }
 
-interface IInsertDeveloper {
+export interface IInsertDeveloper {
   name: string;
   email: string;
   cpf: string;
-  password: string;
 }
 
-const getAll = async (): Promise<IDeveloper[] | Error> => {
+const getAll = async (search: string): Promise<IDeveloper[] | Error> => {
   try {
-    const { data } = await Api.get('/developer/get-developers');
+    const { data } = await Api.get(
+      `/developer/get-developers?search=${search}`
+    );
     if (data) {
       return data;
     }
@@ -57,10 +58,10 @@ const create = async (dados: IInsertDeveloper): Promise<IDeveloper | Error> => {
     }
     return new Error('Erro ao criar o registro.');
   } catch (error) {
-    console.error(error);
-    return new Error(
-      (error as { message: string }).message || 'Erro ao criar o registro.'
-    );
+    const errorMessage =
+      error.response?.data?.message || 'Erro ao criar o registro.';
+    console.error(errorMessage);
+    return new Error(errorMessage);
   }
 };
 
@@ -81,12 +82,29 @@ const updateById = async (): Promise<any> => {
   }
 };
 
-const deleteById = async (): Promise<any> => {};
+const inactiveById = async (
+  idDeveloper: string
+): Promise<IDeveloper | Error> => {
+  try {
+    const { data } = await Api.patch(
+      `/developer/inactive-developer/${idDeveloper}`
+    );
+    if (data) {
+      return data;
+    }
+    return new Error('Erro ao inativar o registro.');
+  } catch (error) {
+    console.error(error);
+    return new Error(
+      (error as { message: string }).message || 'Erro ao inativar o registro.'
+    );
+  }
+};
 
 export const DevelopersService = {
   getAll,
   getById,
   create,
   updateById,
-  deleteById
+  inactiveById
 };
