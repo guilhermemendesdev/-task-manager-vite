@@ -1,50 +1,54 @@
-# React + TypeScript + Vite
+# Task Management App
 
-This template provides a minimal setup to get React working in Vite with HMR and some ESLint rules.
+Esta é uma aplicação simples desenvolvida em ReactJS para gerenciar tarefas.
 
-Currently, two official plugins are available:
+## Funcionalidades
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react/README.md) uses [Babel](https://babeljs.io/) for Fast Refresh
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react-swc) uses [SWC](https://swc.rs/) for Fast Refresh
+- Cadastrar novos Devs
+- Listar todas os Devs cadastradas
 
-## Expanding the ESLint configuration
+- Cadastrar novas tarefas
+- Listar todas as tarefas cadastradas
 
-If you are developing a production application, we recommend updating the configuration to enable type aware lint rules:
+## Pré-requisitos
 
-- Configure the top-level `parserOptions` property like this:
+- Node.js instalado em sua máquina
+- Git instalado em sua máquina
 
-```js
-export default tseslint.config({
-  languageOptions: {
-    // other options...
-    parserOptions: {
-      project: ['./tsconfig.node.json', './tsconfig.app.json'],
-      tsconfigRootDir: import.meta.dirname,
-    },
-  },
-})
+## Instalação
+
+1. Faça o clone do repositório em sua máquina:
+
+```bash
+git clone https://github.com/guilhermemendesdev/-task-manager-vite.git
 ```
 
-- Replace `tseslint.configs.recommended` to `tseslint.configs.recommendedTypeChecked` or `tseslint.configs.strictTypeChecked`
-- Optionally add `...tseslint.configs.stylisticTypeChecked`
-- Install [eslint-plugin-react](https://github.com/jsx-eslint/eslint-plugin-react) and update the config:
+2. Acesse o diretório do projeto:
 
-```js
-// eslint.config.js
-import react from 'eslint-plugin-react'
-
-export default tseslint.config({
-  // Set the react version
-  settings: { react: { version: '18.3' } },
-  plugins: {
-    // Add the react plugin
-    react,
-  },
-  rules: {
-    // other rules...
-    // Enable its recommended rules
-    ...react.configs.recommended.rules,
-    ...react.configs['jsx-runtime'].rules,
-  },
-})
+```bash
+cd -task-manager-vite
 ```
+
+3. Instale as dependências do projeto:
+
+```bash
+npm install
+```
+
+## Executando a aplicação
+
+Para iniciar a aplicação em modo de desenvolvimento, execute o seguinte comando:
+
+```bash
+npm run dev
+```
+
+Isso iniciará o servidor de desenvolvimento e abrirá a aplicação em seu navegador padrão. Qualquer alteração feita no código será automaticamente refletida na aplicação em execução.
+
+## Contribuindo
+
+Sinta-se à vontade para contribuir com o projeto, seja reportando problemas, sugerindo melhorias ou enviando pull requests.
+
+## Licença
+
+Este projeto está licenciado sob a [MIT License](LICENSE).
