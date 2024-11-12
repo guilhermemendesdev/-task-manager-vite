@@ -5,16 +5,16 @@ export const Dashboard = () => {
     return(
         <LayoutBase 
         titulo='Página Inicial' 
-        barraDeFerramentas={(
-            <FerramentasDeDetalhe
-            mostrarBotaoSalvar
-            mostrarBotaoSalvarEVoltar
-            mostrarBotaoApagar
-            mostrarBotaoNovo
-            />
-        )}
+        // barraDeFerramentas={(
+        //     <FerramentasDeDetalhe
+        //     mostrarBotaoSalvar
+        //     mostrarBotaoSalvarEVoltar
+        //     mostrarBotaoApagar
+        //     mostrarBotaoNovo
+        //     />
+        // )}
         >
-            Testando
+           
         </LayoutBase>
     )
 }
