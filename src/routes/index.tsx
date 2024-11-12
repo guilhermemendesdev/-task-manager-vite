@@ -3,6 +3,7 @@ import { useDrawerContext } from '../shared/contexts'
 import { useEffect } from 'react'
 import { Home, People } from '@mui/icons-material'
 import { Dashboard, ListagemDeDevelopers } from '../pages'
+import { NovoDeveloper } from '../pages/developers/NovoDeveloper'
 
 export const AppRoutes = () => {
     const {setDrawerOptions} = useDrawerContext()
@@ -26,6 +27,7 @@ export const AppRoutes = () => {
         <Routes>
             <Route path='/home' element={<Dashboard/>}/>
             <Route path='/developers' element={<ListagemDeDevelopers/>}/>
+            <Route path='/developers/novo' element={<NovoDeveloper/>}/>
             <Route path='*'  element={<Navigate to='/home'/>}/>
         </Routes>
     )
